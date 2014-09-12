@@ -46,22 +46,22 @@ class Node:
     def get_occupied(self):
         return self.has_person
 
+grid = []
+
 #takes grid as input, and prints to screen what original input file looks like but with updated locations for the '@' symbol
 def display_grid():
     for n in range(0, len(grid)):
         line_str = ''
         for x in range(0, len(grid[n])):
-            if grid[n][x].get_occupied == 1:
+            if grid[n][x].get_occupied() == 1:
                 line_str += '@'
-            elif  grid[n][x].get_kind == 0:
+            elif grid[n][x].get_kind() == 0:
                 line_str = line_str + '.'
-                print 'omg'
-            elif  grid[n][x].get_kind == 1:
+            elif grid[n][x].get_kind() == 1:
                 line_str = line_str + '#'
-            elif  grid[n][x].get_kind == 2:
+            elif grid[n][x].get_kind() == 2:
                 line_str = line_str + '%'
         print line_str
-        print 'doing something'
 
 
 #file IO. Taken from lecture slides
@@ -78,10 +78,10 @@ for n in range(0, len(lines)):
     lines[n] = list(lines[n].strip()) 
 
 
-print lines #for debug purposes currently 
+#print lines #for debug purposes currently 
 
 
-grid = []
+
 
 for n in range(0, len(lines)):
     li = []
@@ -93,21 +93,23 @@ for n in range(0, len(lines)):
             node.set_kind(1)
         if lines[n][x] == '%':
             node.set_kind(2)
+        if lines[n][x] == '@':
+            node.set_occupied(1)
         #TODO: set other node properties
         li.append(node)
     grid.append(li)
 
 
 #debug stuff
-for n in range(0, len(grid)):
-    for x in range(0, len(grid[n])):
-        print grid[n][x].get_kind()
+#for n in range(0, len(grid)):
+#    for x in range(0, len(grid[n])):
+#        print grid[n][x].get_kind()
 
 
-display_grid() #doesnt work yet. mostly because how do I python 
+display_grid() # 
 
 
-
+print grid[0][3].get_kind()
 
 
 
