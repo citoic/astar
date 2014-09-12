@@ -56,9 +56,7 @@ f.close()
 for n in range(0, len(lines)):
     lines[n] = list(lines[n].strip()) 
 
-grid = [len(lines)][len(lines[0])] #this assumes that the input is either a single line or a perfect rectangle
 
 
-for n in range(0, len(lines)):
 
 print lines
