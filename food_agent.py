@@ -134,7 +134,6 @@ def a_star():
     frontier.put((start_node_f, grid[start[0]][start[1]]))
     while not frontier.empty():
         current_node = frontier.get()[1]
-        #print current_node.get_location()
         if current_node.get_kind() == 2: #goal node
             return 1 #path found
         explored.add(current_node)
@@ -191,10 +190,6 @@ for n in range(0, len(lines)):
     grid.append(li)
 
 
-#debug stuff
-#for n in range(0, len(grid)):
-#    for x in range(0, len(grid[n])):
-#        print grid[n][x].get_kind()
 
 
 print 'Initial:'
@@ -206,4 +201,6 @@ solution = a_star()
 
 if solution == 0:
     print 'There is no path to ramem :('
+else:
+    print 'need to implement this feature '
 
