@@ -66,7 +66,7 @@ class Node:
 
 grid = []
 blankgrid = []
-start = [0,0]
+start = [-1,-1]
 goal = [0,0]
 flag = 0
 steps = []
@@ -152,6 +152,8 @@ def a_star():
     start_node_f = heuristic(start)
     grid[start[0]][start[1]].set_f(start_node_f)
     frontier.put((start_node_f, grid[start[0]][start[1]]))
+    if start[0] == -1:
+        return 0
     while not frontier.empty():
         current_node = frontier.get()[1]
         if current_node.get_kind() == 2: #goal node
@@ -188,7 +190,7 @@ def print_steps():
         temp_location = grid[temp_location[0]][temp_location[1]].get_parent()
 
     while not path.empty():
-        print "step " +str(count) + ":"
+        print ("step " +str(count) + ":")
         count += 1
         display_grid_with_agent(blankgrid, path.get())
 
