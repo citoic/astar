@@ -1,3 +1,8 @@
+# CS 156 homework 1 -- food agent
+# 15 September 2014
+# Katharine Brinker and Edward Ciotic
+
+
 import sys
 import Queue
 import math
